@@ -1,4 +1,5 @@
 from os import system as sys
+from termcolor import colored
 
 
 def _write_to_file(msg):
@@ -8,13 +9,13 @@ def _write_to_file(msg):
 
 
 def _encrypt_message(msg, key):
-    file = _write_to_file(message)
-    sys_string = 'python ..\my_codex\k_obscurus.py --encrypt {} {}'.format(key, file.name)
+    file = _write_to_file(msg)
+    sys_string = 'python ../my_codex/k_obscurus.py --encrypt {} {}'.format(key, file.name)
     msg = sys(sys_string)
     if msg == 0:
-        print('success')
+        print(colored('success','green'))
     else:
-        print('error try again')
+        print(colored('error try again','red'))
 
 
 def main():
