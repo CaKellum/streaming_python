@@ -1,11 +1,18 @@
 from os import system as sys
 
+def _write_to_file(msg):
+    with open('message.txt','w') as write_file:
+        write_file.write(msg)
+    return write_file
+
+
 def main():
     print("welcome to the encrypted mesaging.\n please enter the message")
-    message = prompt("message: ")
-    key = prompt("password: ")
+    message = input("message: ")
+    key = input("password: ")
+    recipient_email = input("email of recipient")
     file = _write_to_file(message)
-    sys_string = 'python k_obscurus.py --encrypt {} {}'.format(key, file.name)
+    sys_string = 'python ..\my_codex\k_obscurus.py --encrypt {} {}'.format(key, file.name)
     msg = sys(sys_string)
     if msg == 0:
         print("success")
